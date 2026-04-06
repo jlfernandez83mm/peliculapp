@@ -14,7 +14,9 @@ class DirectorController extends Controller
     {
         //
         $directores = Director::all();
-        return view(''); //TODO: Crear vista con componente tipo tabla que muestre todos los directores, y un enlace a la página de cada uno de ellos.
+        
+        return view('director.index',['header' => collect(['Nombre', 'Apellido', 'Fecha nacimiento']), 'tableData' => collect([1,2])]);
+        //return view(''); //TODO: Crear vista con componente tipo tabla que muestre todos los directores, y un enlace a la página de cada uno de ellos.
     }
 
     /**
