@@ -39,9 +39,14 @@ class DirectorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Director $director)
     {
         //
+        $headerPeliculas = collect(['Title', 'Sinopsis', 'Duration']);
+        $films = $director->films;
+        return view('director.show', compact('director','headerPeliculas','films'));
+
+
     }
 
     /**
