@@ -24,9 +24,9 @@
                     <p class="font-light leading-relaxed text-slate-600 mb-4">Descripción genérica de aldeano genérico Descripción genérica de aldeano genérico Descripción genérica de aldeano genérico Descripción genérica de aldeano genérico Descripción genérica de aldeano genérico.</p>
 
                     <div class="tablaPeliculas">
-                        <x-table :header="$headerPeliculas" :tableData="$films"></x-table>
+                        <x-table :header="$headerPeliculas" :tableData="$tableData"></x-table>
                     </div>
-
+                    <a href="{{route('directors.index')}}">Volver</a>
                 </div>
             </div>
         </div>

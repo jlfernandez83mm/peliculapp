@@ -14,9 +14,18 @@ class DirectorController extends Controller
     {
         //
         $directores = Director::all();
+
+        //TODO: Hacer de una manera más "laraveliana"y permitir que el componente meta solo valores o código html
+        foreach($directores as $director){
+            $tableData[$director->id] = [
+                $director->name, $director->surname, $director->birthdate
+            ];
+        }
+        $tableData = collect($tableData);
+        
         $header = collect(['Nombre', 'Apellido', 'Fecha nacimiento']);
     
-        return view('director.index', compact('directores','header'));
+        return view('director.index', compact('tableData','header'));
         //return view(''); //TODO: Crear vista con componente tipo tabla que muestre todos los directores, y un enlace a la página de cada uno de ellos.
     }
 
@@ -44,7 +53,14 @@ class DirectorController extends Controller
         //
         $headerPeliculas = collect(['Title', 'Sinopsis', 'Duration']);
         $films = $director->films;
-        return view('director.show', compact('director','headerPeliculas','films'));
+        foreach($films as $film){
+            $tableData[$film->id] = [
+                $film->title, $film->sinopsis, $film->duration
+            ];
+        }
+        $tableData = collect($tableData);
+        
+        return view('director.show', compact('director','headerPeliculas','tableData'));
 
 
     }
