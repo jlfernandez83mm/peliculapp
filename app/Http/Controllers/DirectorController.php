@@ -34,7 +34,9 @@ class DirectorController extends Controller
      */
     public function create()
     {
-        //
+        //Devolvemos la vista de creación del formulario
+        return view('director.create');
+
     }
 
     /**
@@ -43,6 +45,7 @@ class DirectorController extends Controller
     public function store(Request $request)
     {
         //
+        dump($request);
     }
 
     /**

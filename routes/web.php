@@ -20,6 +20,10 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/directors',[DirectorController::class,'index'])->name('directors.index');
+
+Route::get('/directors/create',[DirectorController::class,'create'])->name('directors.create');
+Route::post('/directors',[DirectorController::class,'store'])->name('directors.store');
+
 Route::get('/directors/{director}', [DirectorController::class,'show'])->name('directors.show');
 
 require __DIR__.'/auth.php';
